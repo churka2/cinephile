@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    user-select: none;
+    outline: none;
+    list-style: none;
+    font-family: 'Raleway';
+    font-weight: 400;
+}
+
+body {
+    background: #141414;
+    color: white;
+}
+
+.container {
+    max-width: 1350px;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    padding-bottom: 70px;
+}
+
+@mixin media($size){
+    @media (max-width:#{$size}px){
+        @content
+    }
+}

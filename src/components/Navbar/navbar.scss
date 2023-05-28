@@ -1,0 +1,98 @@
+.nav {
+    background: #14141480;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid #FFFFFF80;
+    z-index: 200;
+    transition: 0.3s;
+    
+    &.color{
+        background: #000;
+    }
+    &__btn{
+        display: none;
+        @include media(800){
+            display: flex;
+        }
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        @include media(800){
+            padding-top: 70px;
+            position: fixed;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background: #141414;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            transform: translateY(-100%);
+            transition: 0.3s;
+            
+            &.active {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__link {
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 21px;
+        color: #FFFFFF99;
+        position: relative;
+        padding: 34px 0;
+        display: flex;
+        justify-content: center;
+
+        &.router-link-exact-active {
+            color: #fff;
+        }
+
+        &::after {
+            content: "";
+            width: 0px;
+            height: 0px;
+            background: #149A03;
+            position: absolute;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.2s;
+        }
+
+        &.router-link-exact-active::after {
+            width: 15px;
+            height: 15px;
+        }
+    }
+    
+    &__close{
+        background: #ffff;
+        outline: none;
+        border: none;
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        @include media(800){
+            display: flex;
+        }
+    }
+}
