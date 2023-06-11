@@ -1,49 +1,61 @@
-.main__upcoming{
+.main__upcoming {
     position: relative;
     height: 100vh;
     overflow: hidden;
-    
-    &-item{
+
+    @include media(768) {
+        height: 85vh;
+    }
+
+    @include media(460) {
+        height: 75vh;
+    }
+
+    @include media(420) {
+        height: 100vh;
+    }
+
+    &-item {
         height: 100%;
-        &-img{
+
+        &-img {
             position: absolute;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
         }
-         
     }
-   &-content{
+
+    &-content {
         padding: 0 15px;
-        position: relative;
         height: 100%;
         width: 100%;
         display: flex;
         align-items: center;
-        text-align: center;
         justify-content: center;
+        text-align: center;
         background: rgba(20, 20, 20, 0.76);
-        
-        
-        
-        &-title{
+        position: relative;
+
+        &-title {
             font-size: 80px;
             font-weight: 700;
             line-height: 94px;
             color: white;
-            
-            @include media(890){
-                font-size: 50px;
-                line-height: 50px;
+
+            @include media(890) {
+                line-height: 44px;
+                font-size: 35px;
             }
-            @include media(400){
-                font-size: 30px;
-                line-height: 30px;
+
+            @include media(400) {
+                line-height: 35px;
+                font-size: 26px;
             }
         }
-        &-text{
+
+        &-text {
             font-size: 20px;
             font-weight: 400;
             line-height: 30px;
@@ -54,35 +66,37 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            
-            @include media(400){
-                font-size: 17px;
-                line-height: 20px;
-            }
         }
     }
-    &-info{
-        margin-top: 40px;
+
+    &-info {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 50px;
+
+        @include media(576) {
+            margin-top: 40px;
+        }
     }
-    
-    &-next{
+
+    &-next {
         position: absolute;
-        right: 10px;
         bottom: 10px;
+        right: 10px;
         border-radius: 10px;
         width: 30%;
         height: 100px;
         overflow: hidden;
         display: flex;
         align-items: center;
-        @include media(991){
+        cursor: pointer;
+
+        @include media(991) {
             display: none;
         }
-        &-img{
+
+        &-img {
             position: absolute;
             right: 0;
             top: 0;
@@ -90,50 +104,77 @@
             height: 100%;
             object-fit: cover;
         }
-        &-content{
+
+        &-content {
             width: 100%;
             height: 100%;
             position: relative;
             background: linear-gradient(90deg, #000000 55.64%, rgba(0, 0, 0, 0) 100%);
-            display: flex;
-            align-items: start;
-            justify-content: center;
             color: white;
+            display: flex;
             flex-direction: column;
+            justify-content: center;
             padding: 15px;
             gap: 15px;
         }
-        &-title{
+
+        &-title {
             font-size: 18px;
             font-weight: 700;
             line-height: 21px;
-            
+            color: white;
         }
-        &-line{
+
+        &-line {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
             height: 5px;
             background: #FFFFFF80;
-            &::before{
+
+            &::before {
                 content: "";
                 display: block;
                 background: white;
                 height: 100%;
-                animation: time 5s infinite linear;
+                animation: time 5s linear;
             }
         }
     }
 }
 
+.upcoming-enter-active,
+.upcoming-leave-active {
+    transition: 0.3s ease-in-out;
+}
+
+.upcoming-enter-from {
+    transform: scale(1.2);
+    opacity: 0;
+}
+
+.upcoming-item-enter-active,
+.upcoming-item-leave-active {
+    transition: 0.3s linear;
+}
+
+.upcoming-item-enter-from {
+    opacity: 0;
+    transform: scale(1);
+}
+
+.upcoming-item-leave-to {
+    opacity: 0;
+    transform: scale(1.2);
+}
 
 @keyframes time {
-    0%{
+    0% {
         width: 0;
     }
-    
-    100%{
+
+    100% {
         width: 100%;
     }
 }

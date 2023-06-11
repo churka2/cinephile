@@ -13,6 +13,7 @@
 body {
     background: #141414;
     color: white;
+    overflow-x: hidden;
 }
 
 .container {
@@ -29,12 +30,12 @@ body {
     flex-direction: column;
 }
 
-.main{
+.main {
     padding-bottom: 70px;
 }
 
-@mixin media($size){
-    @media (max-width:#{$size}px){
+@mixin media($size) {
+    @media (max-width:#{$size}px) {
         @content
     }
 }

@@ -1,15 +1,15 @@
 <template>
     <header class="header">
-        <nav class="nav" :class="{color: scrollDown > 0}">
+        <nav class="nav" :class="{ color: scrollDown > 0 }">
             <div class="container">
                 <div class="nav__container">
                     <router-link to="/" class="logo">
                         <img src="@/assets/images/Logo.svg" alt="">
                     </router-link>
-                    <button class="nav__btn" @click="burgerOn">`
+                    <button class="nav__btn" @click="burgerOn">
                         <img src="@/assets/images/menu.svg" alt="">
                     </button>
-                    <ul class="nav__list" :class="{active: burger}">
+                    <ul class="nav__list" :class="{ active: burger }">
                         <li class="nav__close" @click="burgerOff">
                             <img src="@/assets/images/closeMenu.svg" alt="">
                         </li>
@@ -19,7 +19,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/search" class="nav__link" @click="burgerOff">
+                            <router-link to="/search" class="nav__link">
                                 <img src="@/assets/images/search.svg" alt="">
                             </router-link>
                         </li>
@@ -40,24 +40,20 @@ const links = ref([
 
 const burger = ref(false)
 
-const burgerOn = ()=>{
+const burgerOn = () => {
     burger.value = true
     document.body.style.overflow = 'hidden'
 }
-
-const burgerOff = ()=>{
+const burgerOff = () => {
     burger.value = false
     document.body.style.overflow = 'visible'
 }
-
-
 const scrollDown = ref(0)
 const updateScroll = () => {
     scrollDown.value = window.scrollY
-    console.log(scrollDown.value);
 }
 onMounted(() => {
-    window.addEventListener("scroll", updateScroll)
+    window.addEventListener('scroll', updateScroll)
 })
 </script>
 
